@@ -1,0 +1,63 @@
+<html>
+        
+    <body>
+      <div style="background-image: url('apito2.jpg'); height: 100%;  background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;">
+
+            <br><br><br><br><br><br><br>
+            <div align="center"><font face="Calibri" size="1000px" color="white">Estamos há<br>3 dias sem pular do apito</font></div>
+            <br><br><br><br><br><br><br>
+
+        <div align="center"><font color="white"> <big><b>dias que pulamos:</b></big></font>
+
+          <select id="dias" onchange="mudaTexto()">
+             <option value="default">??/??/??</option>
+             <option value="data">05/03/20</option>
+          </select>
+         
+          <br>
+         
+          <p id="demo"><font color="white">Escolha o um dos dias em que pulamos</font></p>
+
+        </div>
+
+
+
+        <script>
+          var x = document.getElementById("dias");
+          
+          function mudaTexto()
+          {
+            var i = x.selectedIndex;
+            var str = new String("Escolha o um dos dias em que pulamos");
+/*          
+            switch(i)
+            {
+              case 0:
+                document.getElementById("demo").innerHTML = "Escolha o um dos dias em que pulamos";
+                break;
+
+              case 1:
+                document.getElementById("demo").innerHTML = "annabell";
+                break;
+          
+            }
+*/
+            if(i==0)
+            {
+              str = new String("Escolha o um dos dias em que pulamos");
+            }
+            else
+            {
+              if(i==1)
+              {
+                str = new String("Não conseguimos fazer os exercicio de linguagens formais");
+              }
+            }
+            document.getElementById("demo").innerHTML = str.fontcolor( "white" );
+          }
+
+        </script>
+    </body>
+</html>
