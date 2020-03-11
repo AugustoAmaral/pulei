@@ -1,18 +1,55 @@
+
 <html>
-<body onload=startCountdown()>
+<body >
 <SCRIPT language=JavaScript>
+startCountdown()
+var Tsec = 0;
+var Tmin=0;
+var Thor=0;
+var Tdia=0;
 
-var g_iCount = new Number();
+function startCountdown()
+{
+       if((Tsec + 1) <= 59)
+       {
+               Tsec = Tsec + 1;
+               
 
-// de 30 a 0 //
-var g_iCount = 30;
+               numberCountdown.innerText = `${Tdia}, ${Thor}:${Tmin}:${Tsec}`;
+               
 
-function startCountdown(){
-       if((g_iCount - 1) >= 0){
-               g_iCount = g_iCount - 1;
-               numberCountdown.innerText = '00:00.0' + g_iCount;
                setTimeout('startCountdown()',1000);
        }
+       else
+       {
+       		Tsec=0;
+
+       		if((Tmin+1)<=59)
+       		{
+       			Tmin=Tmin+1;
+       			setTimeout('startCountdown()',1000);
+       		}
+       		else
+       		{
+       			Tmin=0;
+
+       			if((Thor+1)<=23)
+       			{
+       				Thor=Thor+1;
+       				setTimeout('startCountdown()',1000);
+       			}
+       			else
+       			{
+       				Thor=0;
+       				Tdia=Tdia+1;
+       				setTimeout('startCountdown()',1000);
+       			}
+       		}
+       }
+
+
+
+
 }
 </SCRIPT>
 <FONT face=verdana color=#1e90ff size=2><B>
