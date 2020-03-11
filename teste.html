@@ -1,60 +1,27 @@
-
 <html>
-<body >
-<SCRIPT language=JavaScript>
-startCountdown()
-var Tsec = 0;
-var Tmin=0;
-var Thor=0;
-var Tdia=0;
+  <body>
+    <font face="verdana" color="#1e90ff" size="2">
+      <b />
+      <div id="numberCountdown" align="center" />
+    </font>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+      function getDif() {
+        let startDate = "2020-03-05T00:00:00.000Z";
+        return moment().diff(startDate);
+	  }
 
-function startCountdown()
-{
-       if((Tsec + 1) <= 59)
-       {
-               Tsec = Tsec + 1;
-               
+	  console.log(getDif())
 
-               numberCountdown.innerText = `${Tdia}, ${Thor}:${Tmin}:${Tsec}`;
-               
+      function updateInnerText() {
+        let dif = moment(getDif());
+        document.getElementById(
+          "numberCountdown"
+        ).innerText = `Estamos sem pular há: ${dif.days()} Dias,${dif.hours()} Horas, ${dif.minutes()} Minutos, ${dif.seconds()} Segundos`;
+        setTimeout("updateInnerText()", 50);
+      }
 
-               setTimeout('startCountdown()',1000);
-       }
-       else
-       {
-       		Tsec=0;
-
-       		if((Tmin+1)<=59)
-       		{
-       			Tmin=Tmin+1;
-       			setTimeout('startCountdown()',1000);
-       		}
-       		else
-       		{
-       			Tmin=0;
-
-       			if((Thor+1)<=23)
-       			{
-       				Thor=Thor+1;
-       				setTimeout('startCountdown()',1000);
-       			}
-       			else
-       			{
-       				Thor=0;
-       				Tdia=Tdia+1;
-       				setTimeout('startCountdown()',1000);
-       			}
-       		}
-       }
-
-
-
-
-}
-</SCRIPT>
-<FONT face=verdana color=#1e90ff size=2><B>
-<DIV id=numberCountdown align=center></DIV></FONT>
-
-
-</body>
+      updateInnerText();
+    </script>
+  </body>
 </html>
